@@ -30,15 +30,15 @@
     }
 
     .headerTable>:nth-child(3) {
-        order: 4;
+        order: 3;
     }
 
     .headerTable>:nth-child(4) {
-        order: 5;
+        order: 4;
     }
 
     .headerTable>:nth-child(5) {
-        order: 3;
+        order: 5;
     }
 
     .headerTable>:nth-child(6) {

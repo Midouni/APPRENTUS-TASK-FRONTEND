@@ -1,16 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getAllExpenses, getExpense, createExpense, removeExpense, editExpense, editStatus } from '../api/api'
-const currentDate = new Date()
+
+
 const initialState = {
     expensesData: [],
     isLoading: true,
     expenseName: '0',
     expenseDesc: '',
-    expenseDate: {
-        day: currentDate.getDate(),
-        month: currentDate.getMonth() + 1,
-        year: currentDate.getFullYear()
-    },
+    expenseDate: "",
     amount: '',
     isEditing: false,
     expenseEditingId: null,
@@ -24,33 +21,25 @@ const expensesSlice = createSlice({
         clearForm: (state, action) => {
             state.expenseName = '';
             state.amount = '';
-            state.expenseDate.day = currentDate.getDate();
-            state.expenseDate.month = currentDate.getMonth() + 1;
-            state.expenseDate.year = currentDate.getFullYear();
+            state.expenseDate = "";
             state.expenseDesc = "";
             state.isEditing = false;
             state.expenseEditingId = null
         },
         handleChange: (state, action) => {
             const { name, value } = action.payload;
-            if (name === 'day' || name === 'month' || name === 'year') {
-                state.expenseDate[name] = value
-            } else {
-                state[name] = value
-            }
+            state[name] = value
+
         },
         handleEdit: (state, action) => {
             const id = action.payload.id
 
             //here get expense
             const expense = state.expensesData.filter((item) => { return item._id === id })[0]
-            const date = expense.date.split("-")
 
             state.expenseName = expense.name;
             state.amount = expense.amount;
-            state.expenseDate.day = date[2];
-            state.expenseDate.month = date[1];
-            state.expenseDate.year = date[0];
+            state.expenseDate = expense.date;
             state.expenseDesc = expense.desc
             state.isEditing = true
             state.expenseEditingId = id
@@ -104,9 +93,7 @@ const expensesSlice = createSlice({
                 state.expensesData = action.payload
                 state.expenseName = '';
                 state.amount = '';
-                state.expenseDate.day = currentDate.getDate();
-                state.expenseDate.month = currentDate.getMonth() + 1;
-                state.expenseDate.year = currentDate.getFullYear();
+                state.expenseDate = "";
                 state.expenseDesc = ""
                 state.isLoading = false;
                 state.isEditing = false;
@@ -134,9 +121,7 @@ const expensesSlice = createSlice({
                 state.expensesData = action.payload
                 state.expenseName = '';
                 state.amount = '';
-                state.expenseDate.day = currentDate.getDate();
-                state.expenseDate.month = currentDate.getMonth() + 1;
-                state.expenseDate.year = currentDate.getFullYear();
+                state.expenseDate = "";
                 state.expenseDesc = ""
                 state.isLoading = false;
             })

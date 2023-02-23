@@ -32,7 +32,6 @@
 
 .name,
 .description,
-.date select,
 .amount,
 .addButton {
     padding: 8px;
@@ -51,9 +50,14 @@
     resize: none;
 }
 
+
 .date {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    margin-top: 10px;
+}
+
+.date>:first-child {
+    width: 100%;
 }
 
 .addButton {
@@ -71,11 +75,6 @@
 }
 
 @media screen and (width <=320px) {
-    .date {
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-    }
-
     .imgDiv>img {
         max-width: 230px;
     }

@@ -30,7 +30,7 @@ function SortTable() {
             <section className={style.sortExpenses}>
                 <div className={style.searchExpenses}>
                     <SearchIcon />
-                    <input type="text" placeholder='search by name' />
+                    <input type="text" placeholder='disbled' disabled />
                 </div>
                 <div className={style.filterExpenses}>
                     <span>sorted by </span>

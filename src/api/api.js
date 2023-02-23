@@ -39,8 +39,7 @@ const createExpense = createAsyncThunk(
         try {
             //get state
             const { expenses } = thunkAPI.getState()
-            let date = `${expenses["expenseDate"]['year']}-${expenses["expenseDate"]['month']}-${expenses["expenseDate"]['day']}`
-            const data = { "name": expenses.expenseName, "desc": expenses.expenseDesc, "date": date, "amount": expenses.amount }
+            const data = { "name": expenses.expenseName, "desc": expenses.expenseDesc, "date": expenses.expenseDate, "amount": expenses.amount }
             const sort = expenses.sort
             const resp = await axios.post(`${BASE_URL}/expenses?sort=${sort}`, data)
             return resp.data
@@ -73,8 +72,7 @@ const editExpense = createAsyncThunk(
 
             const sort = expenses.sort
             const id = expenses.expenseEditingId
-            let date = `${expenses["expenseDate"]['year']}-${expenses["expenseDate"]['month']}-${expenses["expenseDate"]['day']}`
-            const data = { "name": expenses.expenseName, "desc": expenses.expenseDesc, "date": date, "amount": expenses.amount }
+            const data = { "name": expenses.expenseName, "desc": expenses.expenseDesc, "date": expenses.expenseDate, "amount": expenses.amount }
             const resp = await axios.patch(`${BASE_URL}/expenses/${id}?sort=${sort}`, data)
             return resp.data
         } catch (error) {

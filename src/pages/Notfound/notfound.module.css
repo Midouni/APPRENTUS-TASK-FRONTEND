@@ -1,0 +1,25 @@
+.notFound {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: var(--firsrColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.notFound>:first-child {
+    font-size: 30px;
+}
+
+.notFound button {
+    font-size: 20px;
+}
+
+.notFound button:hover {
+    background-color: blue;
+    color: white;
+}

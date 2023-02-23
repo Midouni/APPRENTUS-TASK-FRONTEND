@@ -10,7 +10,7 @@ import { fetchDashboardData } from "../../api/api";
 
 
 const Dashboard = () => {
-    const { expensesArray, startDate } = useSelector((state) => state.dashboard)
+    const { expensesArray, startDate, endDate } = useSelector((state) => state.dashboard)
     const { expensesData } = useSelector((state) => state.expenses)
 
 
@@ -18,7 +18,7 @@ const Dashboard = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchDashboardData())
-    }, [expensesData, dispatch, startDate])
+    }, [expensesData, dispatch, startDate, endDate])
     return (
         <div className={style.dashboard}>
             <Container sx={{ marginTop: "100px" }}>

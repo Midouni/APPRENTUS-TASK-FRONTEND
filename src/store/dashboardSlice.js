@@ -24,7 +24,7 @@ const dashboardSlice = createSlice({
     reducers: {
         handleDate: (state, action) => {
             const { onChangeStartDate, onChangeEndDate } = action.payload
-            if (onChangeStartDate !== '' && onChangeEndDate !== '') {
+            if (onChangeStartDate !== undefined && onChangeEndDate !== undefined) {
                 state.startDate = onChangeStartDate
                 state.endDate = onChangeEndDate
             }

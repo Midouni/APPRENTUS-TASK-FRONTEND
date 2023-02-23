@@ -4,8 +4,8 @@ import style from './navbar.module.css'
 import { Link } from 'react-router-dom'
 import TableChartIcon from '@mui/icons-material/TableChart';
 import AddIcon from '@mui/icons-material/Add';
-import NotificationAddIcon from '@mui/icons-material/NotificationAdd';
 import MenuIcon from '@mui/icons-material/Menu';
+
 
 
 
@@ -50,12 +50,6 @@ function Navbar() {
                             <Link to='/expenses' className={pathname === '/expenses' ? `${style.active}` : ""}>
                                 <AddIcon />
                                 <span>Expenses</span>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to='/'>
-                                <NotificationAddIcon />
-                                <span>Notifications</span>
                             </Link>
                         </li>
                     </ul>
