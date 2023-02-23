@@ -5,7 +5,7 @@ const initialState = {
     expensesArray: [],
     startDate: "",
     endDate: "",
-    sort: "",
+    sort: "date",
     isLoading: false,
 
     allExpAmount: 0,

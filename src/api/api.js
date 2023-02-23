@@ -6,7 +6,10 @@ const getAllExpenses = createAsyncThunk(
     'expenses/getAllExpenses',
     async (params, thunkAPI) => {
         try {
-            //const resp = await axios.get(`${BASE_URL}${EXPENSES_ENDPOINT}?${params}`);
+            if (params === undefined) {
+                const resp = await axios.get(`/expenses`);
+                return resp.data;
+            }
             const resp = await axios.get(`/expenses?${params}`);
             return resp.data;
         } catch (error) {
