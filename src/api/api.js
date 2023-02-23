@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios'
+import { BASE_URL } from './endpoints'
 
 
 const getAllExpenses = createAsyncThunk(
@@ -7,7 +8,7 @@ const getAllExpenses = createAsyncThunk(
     async (params, thunkAPI) => {
         try {
             if (params === undefined) {
-                const resp = await axios.get(`/expenses`);
+                const resp = await axios.get(`${BASE_URL}/expenses`);
                 return resp.data;
             }
             const resp = await axios.get(`/expenses?${params}`);
