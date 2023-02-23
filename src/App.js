@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Dashboard, Expenses, NotFound } from './pages'
+import { Layout } from './components'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { useDispatch } from "react-redux";
+import { getAllExpenses, fetchDashboardData } from "./api/api";
+
+
+const App = () => {
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getAllExpenses())
+        dispatch(fetchDashboardData())
+    })
+    return (
+        <Router>
+            <Routes>
+                <Route element={<Layout />}>
+                    <Route exact path="/" element={<Dashboard />} />
+                    <Route path="/expenses" element={<Expenses />} />
+                </Route>
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </Router >
+    )
 }
 
-export default App;
+export default App

@@ -1,0 +1,82 @@
+.newExpense {
+    margin-top: 100px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 16px -9px rgba(0, 0, 0, 0.75);
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.divForm,
+.imgDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgDiv>img {
+    max-width: 300px;
+}
+
+.form {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+}
+
+.name,
+.description,
+.date select,
+.amount,
+.addButton {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #DBE0E4;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.name {
+    height: 50px;
+}
+
+.description {
+    height: 90px;
+    resize: none;
+}
+
+.date {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.addButton {
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+}
+
+@media screen and (width<=900px) {
+    .content {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+
+    }
+}
+
+@media screen and (width <=320px) {
+    .date {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .imgDiv>img {
+        max-width: 230px;
+    }
+}

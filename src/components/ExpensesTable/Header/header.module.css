@@ -1,0 +1,54 @@
+.headerTable {
+    display: grid;
+    grid-template-columns: repeat(2, 4fr) 2fr 2fr 2fr 1fr;
+    padding: 20px;
+}
+
+.headerTable>div {
+    font-family: 'roboto';
+    text-transform: capitalize;
+    font-weight: 500;
+    padding-left: 5px;
+}
+
+@media screen and (width<=900px) {
+    .headerTable {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+
+    .headerTable>:nth-child(1) {
+        order: 1;
+        grid-column: 1/3;
+    }
+
+    .headerTable>:nth-child(2) {
+        order: 6;
+        grid-column: 1/4;
+
+    }
+
+    .headerTable>:nth-child(3) {
+        order: 4;
+    }
+
+    .headerTable>:nth-child(4) {
+        order: 5;
+    }
+
+    .headerTable>:nth-child(5) {
+        order: 3;
+    }
+
+    .headerTable>:nth-child(6) {
+        order: 2;
+        text-align: right;
+    }
+}
+
+@media screen and (width <=350px) {
+    .headerTable {
+        font-size: 10px;
+    }
+}

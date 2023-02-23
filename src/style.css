@@ -1,0 +1,28 @@
+:root {
+    --primaryColor: #F9FAFB;
+    --secondColor: #637381;
+    --thirdColor: #191BA9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'roboto';
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.sectionStructure {
+    border-radius: 10px;
+    box-shadow: 0px 0px 16px -9px rgba(0, 0, 0, 0.75);
+    padding: 20px;
+    background-color: white;
+}

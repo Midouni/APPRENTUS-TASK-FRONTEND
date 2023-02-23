@@ -1,0 +1,75 @@
+.date {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 18px;
+    color: #1664C0;
+    text-transform: capitalize;
+}
+
+.dateConatiner {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    column-gap: 20px;
+}
+
+.dateConatiner button {
+    width: 100%;
+    height: 100%;
+
+}
+
+
+
+.textField {
+    width: 220px;
+}
+
+.textField label {
+    z-index: 0;
+}
+
+@media screen and (width<=750px) {
+    .date {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+}
+
+@media screen and (width<=500px) {
+    .dateConatiner {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 20px;
+    }
+
+    .title {
+        font-size: 15px;
+    }
+}
+
+@media screen and (width<=300px) {
+    .textField {
+        width: 170px;
+    }
+
+    .title {
+        font-size: 12px;
+    }
+}
+
+@media screen and (width<=220px) {
+    .textField {
+        width: 120px;
+    }
+
+    .title {
+        font-size: 12px;
+    }
+}

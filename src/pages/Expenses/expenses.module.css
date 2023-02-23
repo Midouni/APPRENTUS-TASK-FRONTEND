@@ -1,0 +1,6 @@
+.expenses {
+    background-color: var(--primaryColor);
+    width: 100vw;
+    min-height: 100vh;
+    padding-bottom: 200px;
+}

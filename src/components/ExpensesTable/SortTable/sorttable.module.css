@@ -1,0 +1,62 @@
+.sortExpenses {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    height: 100px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0px 0px 16px -9px rgba(0, 0, 0, 0.75);
+    padding: 20px;
+    background-color: white;
+
+}
+
+.searchExpenses {
+    position: relative;
+    height: 40px;
+    width: 200px;
+    display: flex;
+}
+
+.searchExpenses>:first-child {
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.searchExpenses>input {
+    height: 100%;
+    width: 100%;
+    padding-left: 30px;
+    border: 1px solid #DBE0E4;
+    border-radius: 5px 0 0 5px;
+    transition: all .1s;
+    text-transform: capitalize;
+}
+
+.searchExpenses>input:focus {
+    outline: none;
+}
+
+.filterExpenses {
+    position: relative;
+    width: fit-content;
+    font-size: 12px;
+    font-family: 'roboto';
+    text-transform: capitalize;
+}
+
+.filterExpenses>select {
+    border: 1px solid #DBE0E4;
+    border-radius: 5px;
+    outline: none;
+    text-transform: capitalize;
+}
+
+@media screen and (width <=410px) {
+    .sortExpenses {
+        flex-direction: column;
+    }
+}
