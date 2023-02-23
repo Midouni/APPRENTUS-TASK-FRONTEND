@@ -37,7 +37,7 @@ function Expense({ expense }) {
             <div className={style.edit}>
                 <ClickAwayListener onClickAway={() => { setShowMenu(false) }}>
                     <div>
-                        <MoreVertIcon sx={{ cursor: 'pointer' }} onClick={() => { setShowMenu(true) }} />
+                        <MoreVertIcon sx={{ cursor: 'pointer' }} onClick={() => { setShowMenu(!showMenu) }} />
                         <div style={{ zIndex: "10", display: `${showMenu ? 'block' : "none"}` }} className={style.editShow} >
                             <div className={style.editContent} >
                                 <div className={style.editExpense} onClick={editClickHandler}>
