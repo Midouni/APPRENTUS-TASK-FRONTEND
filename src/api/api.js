@@ -11,7 +11,7 @@ const getAllExpenses = createAsyncThunk(
                 const resp = await axios.get(`${BASE_URL}/expenses`);
                 return resp.data;
             }
-            const resp = await axios.get(`/expenses?${params}`);
+            const resp = await axios.get(`${BASE_URL}/expenses?${params}`);
             return resp.data;
         } catch (error) {
             return thunkAPI.rejectWithValue('something went wrong');
@@ -24,7 +24,7 @@ const getExpense = createAsyncThunk(
     'expenses/getExpense',
     async (id, thunkAPI) => {
         try {
-            const resp = await axios.get(`/expenses/${id}`);
+            const resp = await axios.get(`${BASE_URL}/expenses/${id}`);
             return resp.data;
         } catch (error) {
             return thunkAPI.rejectWithValue('something went wrong');
@@ -42,7 +42,7 @@ const createExpense = createAsyncThunk(
             let date = `${expenses["expenseDate"]['year']}-${expenses["expenseDate"]['month']}-${expenses["expenseDate"]['day']}`
             const data = { "name": expenses.expenseName, "desc": expenses.expenseDesc, "date": date, "amount": expenses.amount }
             const sort = expenses.sort
-            const resp = await axios.post(`/expenses?sort=${sort}`, data)
+            const resp = await axios.post(`${BASE_URL}/expenses?sort=${sort}`, data)
             return resp.data
         } catch (error) {
             return thunkAPI.rejectWithValue('somthing went wrong')
@@ -56,7 +56,7 @@ const removeExpense = createAsyncThunk(
         try {
             const { expenses } = thunkAPI.getState()
             const sort = expenses.sort
-            const resp = await axios.delete(`/expenses/${id}?sort=${sort}`);
+            const resp = await axios.delete(`${BASE_URL}/expenses/${id}?sort=${sort}`);
             return resp.data
         } catch (error) {
             return thunkAPI.rejectWithValue('somthing went wrong')
@@ -75,7 +75,7 @@ const editExpense = createAsyncThunk(
             const id = expenses.expenseEditingId
             let date = `${expenses["expenseDate"]['year']}-${expenses["expenseDate"]['month']}-${expenses["expenseDate"]['day']}`
             const data = { "name": expenses.expenseName, "desc": expenses.expenseDesc, "date": date, "amount": expenses.amount }
-            const resp = await axios.patch(`/expenses/${id}?sort=${sort}`, data)
+            const resp = await axios.patch(`${BASE_URL}/expenses/${id}?sort=${sort}`, data)
             return resp.data
         } catch (error) {
             return thunkAPI.rejectWithValue('somthing went wrong')
@@ -89,7 +89,7 @@ const editStatus = createAsyncThunk(
         try {
             const { expenses } = thunkAPI.getState()
             const sort = expenses.sort
-            const resp = await axios.patch(`/expenses/${id}?sort=${sort}`, { "status": value })
+            const resp = await axios.patch(`${BASE_URL}/expenses/${id}?sort=${sort}`, { "status": value })
             return resp.data
         } catch (error) {
             return thunkAPI.rejectWithValue('somthing went wrong')
@@ -105,10 +105,10 @@ const fetchDashboardData = createAsyncThunk(
             const { startDate, endDate, sort } = dashboard
             let sortParam = params || sort
             if (startDate !== '' && endDate !== '') {
-                const resp = await axios.get(`/dashboard?sort=${sortParam}&startDate=${startDate}&endDate=${endDate}`)
+                const resp = await axios.get(`${BASE_URL}/dashboard?sort=${sortParam}&startDate=${startDate}&endDate=${endDate}`)
                 return resp.data
             } else {
-                const resp = await axios.get(`/dashboard?sort=${sort}`)
+                const resp = await axios.get(`${BASE_URL}/dashboard?sort=${sort}`)
                 return resp.data
             }
 
