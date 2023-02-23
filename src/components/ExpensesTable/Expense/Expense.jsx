@@ -18,6 +18,7 @@ function Expense({ expense }) {
     const editClickHandler = () => {
         window.history.pushState(null, "", '/expenses');
         window.location.href = "#newExpenseSection"
+        setShowMenu(false)
         dispatch(handleEdit({ id: expense._id }))
     }
     return (
@@ -35,22 +36,26 @@ function Expense({ expense }) {
             </div>
             <div className={style.edit}>
                 <ClickAwayListener onClickAway={() => { setShowMenu(false) }}>
-                    <MoreVertIcon sx={{ cursor: 'pointer' }} onClick={() => { setShowMenu(true) }} />
-                </ClickAwayListener>
-                <div style={{ zIndex: "10", display: `${showMenu ? 'block' : "none"}` }} className={style.editShow} >
-                    <div className={style.editContent} >
-                        <div className={style.editExpense} onClick={editClickHandler}>
-                            <EditIcon sx={{ fontSize: "20px", marginRight: '7px' }} />
-                            <span>Edit</span>
-                        </div>
-                        <div className={style.deleteExpense} onClick={(e) => {
-                            dispatch(removeExpense(expense._id))
-                        }}>
-                            <DeleteIcon sx={{ fontSize: "20px", marginRight: '7px' }} />
-                            <span>Delete</span>
+                    <div>
+                        <MoreVertIcon sx={{ cursor: 'pointer' }} onClick={() => { setShowMenu(true) }} />
+                        <div style={{ zIndex: "10", display: `${showMenu ? 'block' : "none"}` }} className={style.editShow} >
+                            <div className={style.editContent} >
+                                <div className={style.editExpense} onClick={editClickHandler}>
+                                    <EditIcon sx={{ fontSize: "20px", marginRight: '7px' }} />
+                                    <span>Edit</span>
+                                </div>
+                                <div className={style.deleteExpense} onClick={(e) => {
+                                    dispatch(removeExpense(expense._id))
+                                    setShowMenu(false)
+                                }}>
+                                    <DeleteIcon sx={{ fontSize: "20px", marginRight: '7px' }} />
+                                    <span>Delete</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </ClickAwayListener>
+
             </div>
         </section >
     )
