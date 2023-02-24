@@ -29,7 +29,7 @@ function NewExpense() {
     }
 
     return (
-        <div className={style.newExpense}>
+        <div className={`${style.newExpense} sectionStructure`}>
             <div className={style.content}>
                 <div className={style.imgDiv}>
                     <img src="./assets/imgForAddExpense.png" alt="img For Add Expense" />

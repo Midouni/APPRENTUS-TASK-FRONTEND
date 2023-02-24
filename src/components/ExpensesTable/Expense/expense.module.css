@@ -1,15 +1,11 @@
 .expense {
-    --primaryColor: #F9FAFB;
-    --secondColor: #637381;
-    --thirdColor: #191BA9;
     display: grid;
-    padding: 20px;
-    min-height: 40px;
     grid-template-columns: repeat(2, 4fr) 2fr 2fr 2fr 1fr;
-    background-color: white;
-    box-shadow: 0px 0px 3px -2px rgba(0, 0, 0, 0.85);
-    font-family: 'roboto';
+    min-height: 40px;
+    padding: 20px;
     margin-bottom: 2px;
+    box-shadow: 0px 0px 3px -2px rgba(0, 0, 0, 0.85);
+    background-color: white;
 }
 
 .expense>div {

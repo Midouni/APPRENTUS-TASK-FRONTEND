@@ -13,9 +13,9 @@
 
 .searchExpenses {
     position: relative;
+    display: flex;
     height: 40px;
     width: 200px;
-    display: flex;
 }
 
 .searchExpenses>:first-child {

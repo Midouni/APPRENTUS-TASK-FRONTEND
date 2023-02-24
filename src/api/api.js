@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios'
 import { BASE_URL } from './endpoints'
 
-
+// get all expenses 
 const getAllExpenses = createAsyncThunk(
     'expenses/getAllExpenses',
     async (params, thunkAPI) => {
@@ -19,7 +19,7 @@ const getAllExpenses = createAsyncThunk(
     }
 );
 
-
+//get one expenses with id 
 const getExpense = createAsyncThunk(
     'expenses/getExpense',
     async (id, thunkAPI) => {
@@ -32,7 +32,7 @@ const getExpense = createAsyncThunk(
     }
 )
 
-
+//create expenses
 const createExpense = createAsyncThunk(
     'expense/createExpense',
     async (_, thunkAPI) => {
@@ -49,6 +49,7 @@ const createExpense = createAsyncThunk(
     }
 )
 
+//remove expenses with id
 const removeExpense = createAsyncThunk(
     'expense/removeExpense',
     async (id, thunkAPI) => {
@@ -63,6 +64,7 @@ const removeExpense = createAsyncThunk(
     }
 )
 
+//edit expenses with id
 const editExpense = createAsyncThunk(
     'expense/editExpense',
     async (_, thunkAPI) => {
@@ -81,6 +83,7 @@ const editExpense = createAsyncThunk(
     }
 )
 
+//use same end point with edit but with diffirent parameters
 const editStatus = createAsyncThunk(
     'expense/editStatus',
     async ({ id, value }, thunkAPI) => {
@@ -95,6 +98,7 @@ const editStatus = createAsyncThunk(
     }
 )
 
+//get all data that showing in dashboard || calculate all data from sum of amout for each status on server side
 const fetchDashboardData = createAsyncThunk(
     'dashboard/fetechData',
     async (params, thunkAPI) => {
