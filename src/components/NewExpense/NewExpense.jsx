@@ -53,6 +53,7 @@ function NewExpense() {
                         </div>
                         <div className={style.date}>
                             <TextField
+                                className={style.textField}
                                 label="Date"
                                 type="date"
                                 InputLabelProps={{

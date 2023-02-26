@@ -61,6 +61,9 @@
     background-color: blue;
     color: white;
 }
+.textField label {
+    z-index: 0;
+}
 
 @media screen and (width<=900px) {
     .content {
