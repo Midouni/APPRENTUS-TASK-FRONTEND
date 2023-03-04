@@ -1,0 +1,41 @@
+.container {
+    height: 400px;
+}
+
+.select_year {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    height: 100px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0px 0px 16px -9px rgba(0, 0, 0, 0.75);
+    padding: 20px;
+    background-color: white;
+}
+
+.select_year>p {
+    font-weight: bold;
+    font-size: 18px;
+    color: #1664C0;
+    text-transform: capitalize;
+}
+
+
+.barchart {
+    display: inline-block !important;
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        /* Reduce the height of the chart container on smaller screens */
+        height: 300px;
+    }
+}
+
+@media (max-width: 300px) {
+    .select_year {
+        flex-direction: column;
+    }
+}

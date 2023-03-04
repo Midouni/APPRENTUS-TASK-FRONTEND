@@ -13,6 +13,7 @@ function Layout() {
         <div className={style.container}>
             {state.expenses.isLoading && <Progress />}
             {state.dashboard.isLoading && <Progress />}
+            {state.monthsStates.isLoading && <Progress />}
             <Navbar />
             <Outlet />
         </div>

@@ -6,6 +6,7 @@ import Counter from "./Counter/Counter";
 import ExpensesTable from "../../components/ExpensesTable/ExpensesTable";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchDashboardData } from "../../api/api";
+import BarChart from "./BarChart/BarChart";
 
 
 
@@ -31,7 +32,9 @@ const Dashboard = () => {
                 <section>
                     <ExpensesTable data={expensesArray} />
                 </section>
-
+                <section>
+                    <BarChart />
+                </section>
             </Container>
 
         </div>
