@@ -22,13 +22,13 @@ function BarChart() {
   const { approvedData, underReviewData, rejectedData } = useSelector(
     (state) => state.monthsStates
   );
-  const { expensesArray } = useSelector((state) => state.dashboard);
+  const { expensesData} = useSelector((state) => state.expenses);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(handleLoading());
-    dispatch(handleData({ data: expensesArray, year }));
-  }, [year, expensesArray, dispatch]);
+    dispatch(handleData({ data: expensesData, year }));
+  }, [year, expensesData, dispatch]);
 
   const data = {
     labels: [
